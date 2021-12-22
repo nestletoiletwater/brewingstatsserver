@@ -1,0 +1,15 @@
+[package]
+name = "brew_stats_server"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+rocket = "0.4.7"
+serde = { version = "1.0", features = ["derive"] }
+mysql = "*"
+chrono = "0.4"
+
+[dependencies.rocket_contrib]
+version = "*"
+default-features = false
+features = ["handlebars_templates", "serve"]

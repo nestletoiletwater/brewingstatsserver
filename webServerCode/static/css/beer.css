@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(209,156,8); 
+    color: rgb(245,245,245);
+    text-align: center;}
+
+#chart {
+    background-color: #f0f0f0;
+    font-size: 12px;
+    display: block;
+    margin: auto;
+    width: 85%;
+    border-left: 4px solid #848484;
+    border-bottom: 4px solid #848484;
+    }
+
+#footsy{
+    font-size: 9px;
+    display: block;
+    margin: auto;
+    width: 85%;
+    }
+    a:link, a:visited {
+    color: rgb(209,66,6);
+    text-decoration: none;
+    }
+    

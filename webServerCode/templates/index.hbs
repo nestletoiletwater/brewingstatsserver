@@ -1,0 +1,85 @@
+{{#*inline "page"}}
+
+<link href="/static/css/beer.css" type="text/css" rel="stylesheet" />
+<section id="beer_data">
+  <p>Current temp of beer: {{ beer_info.brew_temp_now }}</p>
+  <p>Target temp for beer: {{ beer_info.brew_temp_target }}</p>
+  <p>Peak temp of beer: {{ beer_info.brew_temp_max }}</p>
+  <p>Lowest temp of beer: {{ beer_info.brew_temp_min }}</p>
+  <p></p>
+  <p>Heater engaged: {{ beer_info.heater_status }}</p>
+  <p></p>
+  <p>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js" integrity="sha384-4OMvxyBTgFvMJK0tWjIk57FbleRvzmamjg6m+ERG0/p0rV83S6PHHUcLu84Gt+SF" crossorigin="anonymous"></script>
+    <p>This is a thing</p>
+    <p>
+    <canvas id="scatter-chart" width="300" height="150"></canvas>
+<script>
+new Chart(document.getElementById("scatter-chart"), {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Beer Temp',
+           data: [{{ beer_info.beer_temp_data }}],
+	    showLine: true,
+	    pointBackgroundColor: 'rgba(220,20,220,1)',
+	    borderColor: '#fab100',
+	    backgroundColor: '#00000000'
+        }, {
+            label: 'Ambient Temp',
+            data: [{{ beer_info.ambient_temp_data }}],
+	    showLine: true,
+	    pointBackgroundColor: '#aab200',
+	    borderColor: '#aab200',
+	    backgroundColor: '#00000000'
+        }]
+    },
+    options: {
+        scales: {
+	    x: [{
+		scaleLabel: {
+		    display: true,
+		    labelString: "Time (S)",
+		    fontColor: "#fab100"
+		},
+            }],
+         y: [{
+		    display: true,
+		    title: "Temperature (C)",
+            ticks: {
+		    beginAtZero: true,
+		    suggestedMin: 0,
+		    suggestedMax: 50,
+		    color: "rgb(245,245,245)"
+                }
+            }]
+        }
+    }
+});
+
+</script>
+
+    </p>
+
+
+   
+
+  </p>
+  <p></p>
+  <p>Pre-boil gravity: {{ beer_info.pre_boil_gravity }}</p>
+  <p>Original gravity: {{ beer_info.original_gravity }}</p>
+  <p>Final gravity: {{ beer_info.final_gravity }}</p>
+  <p>Brew date:{{ beer_info.brew_date }}</p>
+  <p><h3><b>Brew Day Notes</b></h3></p>
+  <p>{{ beer_info.brew_day_notes }}</p>
+  <p>Bottling date: {{ beer_info.bottling_date }}</p>
+  <p><h3><b>TastingNotes</b></h3></p>
+  <p>{{ beer_info.tasting_notes }}</p>
+
+
+
+</section>
+
+{{/inline}}
+{{~> (parent)~}}
